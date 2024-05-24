@@ -1,10 +1,6 @@
 <%= render "pages/header" %>
-<h1>New article</h1>
-
-<%= render "form", article: @article %>
-
+<div id="page-content">
+  <h1 class="text-center mt-4">New article</h1>
+<br><br>
+    <%= render "form", article: @article %>
 <br>
-
-<div>
-  <%= link_to "Back to articles", articles_path %>
-</div>

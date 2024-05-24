@@ -1,1 +1,14 @@
 .navbar {background-color: rgb(0, 38, 62);}
+
+body {margin-top: 60px; background-color: rgb(240, 242, 246);}
+
+.login_background_container {
+    display: flex;
+    margin-top: 60px;
+}
+.login_background {
+    flex: 1;
+}
+.lr_logo {
+    width: 100px;
+}
