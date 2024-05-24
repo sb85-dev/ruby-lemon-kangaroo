@@ -1,10 +1,31 @@
 <%= render "pages/header" %>
-
-<%= render @article %>
-
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <%= link_to "Back to articles", articles_path %>
-
-  <%= button_to "Destroy this article", @article, method: :delete %>
+<div id="page-content">
+<h1 class="text-center mt-4"><%= @article.title%></h1>
+<br>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-5 bg-white rounded">
+                <div class="card-header font-italic">
+                by Shaun Byrne
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><%= @article.description %></p>
+                    <div class="flexrow">
+                        <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
+                        <%= button_to "Delete", @article, class: "btn btn-outline-danger", method: :delete %>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <small>Created <%= time_ago_in_words(@article.created_at) %> ago, 
+                    edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+                </div>
+            </div>
+            <%# <div class="d-block col-8 mx-auto"> %>
+            <div class="mx-auto p-2" style="width: 200px;">
+            <%= link_to "[  Back to articles  ]", articles_path %>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
