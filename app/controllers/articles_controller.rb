@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /articles or /articles.json
   def index
@@ -13,7 +15,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+        @article = Article.new
   end
 
   # GET /articles/1/edit
@@ -23,7 +25,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     respond_to do |format|
       if @article.save
         format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
@@ -68,4 +70,12 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :description, :created_at, :updated_at)
     end
+
+    def require_same_user
+        if current_user != @article.user && !current_user.admin?
+            flash[:alert] = "You can only edit your own articles"
+            redirect_to @article
+        end
+    end
+
 end

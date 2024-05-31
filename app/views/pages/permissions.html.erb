@@ -1,0 +1,24 @@
+<%= render "pages/header" %>
+<br><br>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-dark">
+                <th>Username</th>
+                <th>Email</th>
+                <th>Admin</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>            
+                    <td><%=user.username%></td>
+                    <td><%=user.email%></td>
+                    <td><%=user.admin%></td>
+                    <td><% link_to "edit User", edit_user_path(user)%></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>

@@ -16,11 +16,11 @@ body {margin-top: 60px; background-color: rgb(240, 242, 246);}
 .lr_logo {
     width: 100px;
 }
-/* .flexrow {
+.flexrow {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
-} */
+}
 
 .flickr_pagination {
     text-align: center;

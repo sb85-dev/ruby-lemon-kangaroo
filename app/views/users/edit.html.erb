@@ -2,3 +2,7 @@
 <h1 class="text-center mt-4">Edit your profile</h1>
 <br>
 <%= render "form"%>
+<br><br>
+<div class="d-grid gap-2 col-3 mx-auto justify-content-center">
+    <%= button_to "Delete my account", user_path(current_user), class: "btn btn-outline-danger mx-1", method: :delete, onclick: "return confirm('Are you sure? All your articles will be deleted as well')" %>
+</div>
