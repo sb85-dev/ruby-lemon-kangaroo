@@ -1,0 +1,26 @@
+<%= render "pages/header" %>
+<br>
+<div class="container">
+    <% @categories.each do |category| %>
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-5 bg-white rounded">
+                <div class="card-header font-italic">
+                    <h5 class="card-title"><%= link_to category.name, category_path(category), class: "link-body-emphasis link-offset-2 link-underline link-underline-opacity-0" %></h5>
+                </div>
+                <div class="card-body">
+                    <%= link_to "View", category_path(category), class: "btn btn-outline-success" %>
+                </div>
+                <div class="card-footer text-muted">
+                    <small>Created <%= time_ago_in_words(category.created_at) %> ago, 
+                    edited <%= time_ago_in_words(category.updated_at) %> ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+<div class="flickr_pagination">
+    <%= will_paginate @categories, :container => false %>
+</div>
+<br><br>
