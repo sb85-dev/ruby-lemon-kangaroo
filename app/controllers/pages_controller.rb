@@ -4,7 +4,5 @@ class PagesController < ApplicationController
     end
     def about
     end
-    def permissions
-        @users = User.all
-    end
+
 end

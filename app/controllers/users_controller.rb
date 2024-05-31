@@ -46,6 +46,10 @@ class UsersController < ApplicationController
         @users = User.paginate(page: params[:page], per_page: 5)
     end
 
+    def permissions
+        @users = User.all
+    end
+
     private
 
     def set_user
