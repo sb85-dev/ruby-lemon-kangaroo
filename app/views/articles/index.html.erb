@@ -3,8 +3,10 @@
   <h1 class="text-center mt-4">Listing all articles</h1>
 <br>
 <div class="d-grid gap-2 col-3 mx-auto"><%= link_to "Create New Article", new_article_path, class: "btn btn-secondary" %></div>
+</div><br>
 
-</div>
-<br><br>
 <%= render "index"%>
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
 <br><br>

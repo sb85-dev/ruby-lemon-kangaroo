@@ -1,0 +1,9 @@
+<%= render "pages/header" %>
+<div id="page-content">
+  <h1 class="text-center mt-4">Listing all users</h1>
+</div>
+<%= render "index"%>
+<div class="flickr_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>
+<br><br>

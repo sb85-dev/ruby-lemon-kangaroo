@@ -1,7 +1,13 @@
 <%= render "pages/header" %>
-<h1 class="text-center mt-4"><%= @user.username %>'s Profile</h1>
+<h1 class="text-center mt-4"><%= @user.username.capitalize %>'s Profile</h1>
 <br>
 <%= gravatar_for @user, size: 200 %>
-<h3 class="text-center mt-4"><%= @user.username %>'s Articles</h3>
-<br>
+<div class="text-center mt-4">
+    <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info"%>
+</div>
+<h3 class="text-center mt-4"><%= @user.username.capitalize %>'s Articles</h3>
 <%= render 'articles/index' %>
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
+<br><br>
