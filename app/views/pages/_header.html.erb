@@ -31,15 +31,12 @@
                     Admin
                     </a>
                     <ul class="dropdown-menu">
-                        <%= link_to "Create new Category", new_category_path, class: "dropdown-item"%>
                         <%= link_to "Categories", categories_path, class: "dropdown-item"%>
+                        <%= link_to "Create new Category", new_category_path, class: "dropdown-item"%>
                         <li><hr class="dropdown-divider"></li>
-                        <%if logged_in?%>
-                            <%= link_to "My Articles", user_path(current_user), class: "dropdown-item"%>
-                        <%end%>
                     </ul>
+                <%end%>                 
                 </li>
-                <%end%>% 
             </ul>      
                 <% if logged_in? %>
                     <%= link_to "My Profile", user_path(current_user), {class: "btn btn-outline-info me-md-2"}%>

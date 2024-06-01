@@ -2,3 +2,14 @@
 <br>
 <div id="page-content">
     <h1 class="text-center mt-4"><%= @category.name%></h1>
+<%if logged_in? && current_user.admin?%>
+    <div class="text-center mt-4">
+        <%= link_to "Edit Category Name", edit_category_path(@category), class: "btn btn-outline-info"%>
+    </div>
+<%end%>
+<h3 class="text-center mt-4"><%= @category.name.capitalize%> Articles</h3>
+<%= render 'articles/index' %>
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
+<br><br>

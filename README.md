@@ -10,6 +10,6 @@ Bootstrap version 5.0
 
 User authentication built from scratch. 
 
-Articles and Users generated without scaffold. 
+Users generated without scaffold. 
 
 Using simple in-line Admin tests.
